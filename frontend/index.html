@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberSentinel — Learn. Detect. Defend.</title>
+    <meta name="description" content="CyberSentinel is a social engineering awareness and simulation platform. Learn attack patterns, detect threats, and defend your organisation." />
+    <meta name="theme-color" content="#0F172A" />
+    <meta property="og:title" content="CyberSentinel — Learn. Detect. Defend." />
+    <meta property="og:description" content="Social engineering awareness training with interactive simulations, knowledge quizzes, and phishing campaigns." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      button { color: inherit; font: inherit; }
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: var(--cs-bg);
+        color: var(--cs-text);
+        -webkit-font-smoothing: antialiased;
+      }
+      :root, [data-theme="light"] {
+        --cs-bg: #F8FAFC;
+        --cs-sidebar: #0F172A;
+        --cs-sidebar-text: #E2E8F0;
+        --cs-sidebar-muted: #94A3B8;
+        --cs-sidebar-active: #2563EB;
+        --cs-primary: #2563EB;
+        --cs-primary-hover: #1D4ED8;
+        --cs-secondary: #06B6D4;
+        --cs-success: #10B981;
+        --cs-warning: #F59E0B;
+        --cs-danger: #DC2626;
+        --cs-text: #0F172A;
+        --cs-muted: #64748B;
+        --cs-card: #FFFFFF;
+        --cs-border: #E2E8F0;
+        --cs-surface: #F1F5F9;
+        --cs-primary-soft: #EFF6FF;
+        --cs-secondary-soft: #ECFEFF;
+        --cs-success-soft: #ECFDF5;
+        --cs-warning-soft: #FFFBEB;
+        --cs-danger-soft: #FEF2F2;
+        --cs-radius: 10px;
+        --cs-radius-lg: 14px;
+        --cs-shadow: 0 1px 3px rgba(15,23,42,.06), 0 1px 2px rgba(15,23,42,.04);
+        --cs-shadow-md: 0 4px 12px rgba(15,23,42,.08);
+        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        /* legacy aliases used across pages */
+        --color-background-primary: var(--cs-card);
+        --color-background-secondary: var(--cs-surface);
+        --color-background-tertiary: var(--cs-bg);
+        --color-background-danger: var(--cs-danger-soft);
+        --color-background-success: var(--cs-success-soft);
+        --color-background-warning: var(--cs-warning-soft);
+        --color-background-info: var(--cs-primary-soft);
+        --color-background-brand: var(--cs-secondary-soft);
+        --color-text-primary: var(--cs-text);
+        --color-text-secondary: var(--cs-muted);
+        --color-text-tertiary: #94A3B8;
+        --color-text-danger: var(--cs-danger);
+        --color-text-success: var(--cs-success);
+        --color-text-warning: var(--cs-warning);
+        --color-text-info: var(--cs-primary);
+        --color-text-brand: var(--cs-secondary);
+        --color-border-tertiary: var(--cs-border);
+        --color-border-secondary: #CBD5E1;
+        --color-border-primary: #94A3B8;
+        --color-border-danger: rgba(220,38,38,.3);
+        --color-border-success: rgba(16,185,129,.3);
+        --color-border-warning: rgba(245,158,11,.3);
+        --color-border-info: rgba(37,99,235,.3);
+        --color-border-brand: rgba(6,182,212,.4);
+        --color-brand: var(--cs-secondary);
+        --color-brand-dark: #0891B2;
+        --color-brand-soft: var(--cs-secondary-soft);
+        --border-radius-md: var(--cs-radius);
+        --border-radius-lg: var(--cs-radius-lg);
+        --font-mono: 'SF Mono', 'Fira Code', monospace;
+      }
+      [data-theme="dark"] {
+        --cs-bg: #020617;
+        --cs-sidebar: #020617;
+        --cs-sidebar-text: #F1F5F9;
+        --cs-sidebar-muted: #64748B;
+        --cs-sidebar-active: #3B82F6;
+        --cs-primary: #3B82F6;
+        --cs-primary-hover: #60A5FA;
+        --cs-secondary: #22D3EE;
+        --cs-success: #34D399;
+        --cs-warning: #FBBF24;
+        --cs-danger: #F87171;
+        --cs-text: #F1F5F9;
+        --cs-muted: #94A3B8;
+        --cs-card: #0F172A;
+        --cs-border: #1E293B;
+        --cs-surface: #1E293B;
+        --cs-primary-soft: #1E3A5F;
+        --cs-secondary-soft: #083344;
+        --cs-success-soft: #064E3B;
+        --cs-warning-soft: #78350F;
+        --cs-danger-soft: #7F1D1D;
+        --cs-shadow: 0 1px 3px rgba(0,0,0,.3);
+        --cs-shadow-md: 0 4px 16px rgba(0,0,0,.4);
+        --color-background-primary: var(--cs-card);
+        --color-background-secondary: var(--cs-surface);
+        --color-background-tertiary: var(--cs-bg);
+        --color-background-danger: var(--cs-danger-soft);
+        --color-background-success: var(--cs-success-soft);
+        --color-background-warning: var(--cs-warning-soft);
+        --color-background-info: var(--cs-primary-soft);
+        --color-background-brand: var(--cs-secondary-soft);
+        --color-text-primary: var(--cs-text);
+        --color-text-secondary: var(--cs-muted);
+        --color-text-tertiary: #64748B;
+        --color-text-danger: var(--cs-danger);
+        --color-text-success: var(--cs-success);
+        --color-text-warning: var(--cs-warning);
+        --color-text-info: var(--cs-primary);
+        --color-text-brand: var(--cs-secondary);
+        --color-border-tertiary: var(--cs-border);
+        --color-border-secondary: #334155;
+        --color-border-primary: #475569;
+        --color-border-danger: rgba(248,113,113,.35);
+        --color-border-success: rgba(52,211,153,.35);
+        --color-border-warning: rgba(251,191,36,.35);
+        --color-border-info: rgba(59,130,246,.35);
+        --color-border-brand: rgba(34,211,238,.4);
+        --color-brand: var(--cs-secondary);
+        --color-brand-dark: #06B6D4;
+        --color-brand-soft: var(--cs-secondary-soft);
+      }
+      input, select, textarea, button { font-family: inherit; }
+      button { transition: background .15s ease, color .15s ease, border-color .15s ease, transform .12s ease, box-shadow .15s ease; }
+      button:active:not(:disabled) { transform: scale(0.98); }
+      a { color: var(--cs-primary); }
+      .cs-fade-in { animation: csFadeIn .28s ease both; }
+      .cs-slide-up { animation: csSlideUp .32s ease both; }
+      @keyframes csFadeIn { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes csSlideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes csPulse { 0%,100% { opacity: 1; } 50% { opacity: .5; } }
+      @keyframes csSpin { to { transform: rotate(360deg); } }
+      .cs-learn-body h3 { font-size: 15px; font-weight: 600; margin: 18px 0 8px; color: var(--cs-text); }
+      .cs-learn-body h3:first-child { margin-top: 0; }
+      .cs-learn-body p { font-size: 13.5px; line-height: 1.7; color: var(--cs-muted); margin-bottom: 10px; }
+      .cs-learn-body ul { margin: 0 0 12px 18px; font-size: 13.5px; line-height: 1.7; color: var(--cs-muted); }
+      .cs-learn-body li { margin-bottom: 4px; }
+      .cs-learn-body strong { color: var(--cs-text); font-weight: 600; }
+      .cs-learn-body .tip-box {
+        background: var(--cs-primary-soft); border-left: 3px solid var(--cs-primary);
+        padding: 12px 14px; border-radius: 0 8px 8px 0; margin: 14px 0; font-size: 13px; line-height: 1.6; color: var(--cs-text);
+      }
+      .cs-learn-body .warn-box {
+        background: var(--cs-danger-soft); border-left: 3px solid var(--cs-danger);
+        padding: 12px 14px; border-radius: 0 8px 8px 0; margin: 14px 0; font-size: 13px; line-height: 1.6; color: var(--cs-text);
+      }
+      .cs-learn-body .ng-box {
+        background: var(--cs-secondary-soft); border-left: 3px solid var(--cs-secondary);
+        padding: 12px 14px; border-radius: 0 8px 8px 0; margin: 14px 0; font-size: 13px; line-height: 1.6; color: var(--cs-text);
+      }
+      /* Responsive utilities */
+      .cs-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+      .cs-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .cs-grid-2-lg { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .cs-table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .cs-table-wrap table { min-width: 520px; }
+      .cs-page { max-width: 100%; }
+      input, select, textarea { font-size: 16px; } /* prevents iOS zoom on focus */
+
+      @media (max-width: 900px) {
+        .cs-grid-4 { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 768px) {
+        .cs-menu-btn { display: flex !important; }
+        .cs-sidebar-desktop { display: none !important; }
+        .cs-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+        .cs-grid-2, .cs-grid-2-lg { grid-template-columns: 1fr; gap: 8px; }
+        .cs-main-pad { padding: 12px 14px 28px !important; }
+        .cs-header-pad { padding-left: 12px !important; padding-right: 12px !important; }
+        .cs-hide-xs { display: none !important; }
+        .cs-stat-value { font-size: 18px !important; }
+      }
+      @media (max-width: 420px) {
+        .cs-grid-4 { grid-template-columns: 1fr 1fr; }
+        .cs-xp-chip { padding: 3px 7px !important; font-size: 11px !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

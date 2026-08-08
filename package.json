@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "npm install --prefix frontend && npm run build --prefix frontend && npm install --prefix backend && npm run build --prefix backend && node scripts/copy-frontend.js",
+    "build": "bash scripts/build.sh",
     "start": "node backend/dist/server.js"
   },
   "engines": {
